@@ -1,11 +1,11 @@
 import React from "react";
 
-function Card() {
+function Card({rating= 5,users= 225, city="Gawadar", location="Balochistan", title, description, image}) {
   return (
 <main className="py-6 px-4 sm:p-6 md:py-10 md:px-8">
   <div className="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2">
     <div className="relative p-3 col-start-1 row-start-1 flex flex-col-reverse rounded-lg bg-gradient-to-t from-black/75 via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
-      <h1 className="mt-1 text-lg font-semibold text-white sm:text-slate-900 md:text-2xl dark:sm:text-white">Beach House in Collingwood</h1>
+      <h1 className="mt-1 text-lg font-semibold text-white sm:text-slate-900 md:text-2xl dark:sm:text-white">Beach House in {location}</h1>
       <p className="text-sm leading-4 font-medium text-white sm:text-slate-500 dark:sm:text-slate-400">Entire house</p>
     </div>
     <div className="grid gap-4 col-start-1 col-end-3 row-start-1 sm:mb-6 sm:grid-cols-4 lg:gap-6 lg:col-start-2 lg:row-end-6 lg:row-span-6 lg:mb-0">
@@ -19,7 +19,7 @@ function Card() {
         <svg width="24" height="24" fill="none" aria-hidden="true" className="mr-1 stroke-current dark:stroke-indigo-500">
           <path d="m12 5 2 5h5l-4 4 2.103 5L12 16l-5.103 3L9 14l-4-4h5l2-5Z"  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-        <span>4.89 <span className="text-slate-400 font-normal">(128)</span></span>
+        <span>{rating} <span className="text-slate-400 font-normal">({users})</span></span>
       </dd>
       <dt className="sr-only">Location</dt>
       <dd className="flex items-center">
@@ -30,7 +30,7 @@ function Card() {
           <path d="M18 11.034C18 14.897 12 19 12 19s-6-4.103-6-7.966C6 7.655 8.819 5 12 5s6 2.655 6 6.034Z" />
           <path d="M14 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
         </svg>
-        Collingwood, Ontario
+        {city} , {location}
       </dd>
     </dl>
     <div className="mt-4 col-start-1 row-start-3 self-center sm:mt-0 sm:col-start-2 sm:row-start-2 sm:row-span-2 lg:mt-6 lg:col-start-1 lg:row-start-3 lg:row-end-4">
@@ -43,4 +43,4 @@ function Card() {
 </main>
   );
 }
- export default Card;
+export default Card;
