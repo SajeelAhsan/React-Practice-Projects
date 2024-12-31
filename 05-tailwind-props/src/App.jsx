@@ -32,7 +32,7 @@ function App() {
     </figcaption>
   </div>
 </figure>
-  <Card />
+  <Card rating={4.8} users={34} city="QasimPort" location="Balochistan"/>
   <Card/>
     </>
   )
