@@ -43,7 +43,7 @@ function App() {
         />
         <button 
         onClick={copyPasswordToClipboard}
-        className='outline-none bg-teal-500 text-white px-3 py-0.5 shrink-0'
+        className='outline-none bg-teal-500 hover:bg-blue-300 text-white px-3 py-0.5 shrink-0'
         >Copy</button>
       </div>
       <div className='flex text-sm gap-x-2'>
