@@ -7,18 +7,18 @@ function TodoItem({ todo }) {
   const [todoMsg, setTodoMsg] = useState(todo.title);
 
   const editTodo = () => {
-    if (!todoMsg.trim()) return; // Prevent empty titles
-    updateTodo(todo.id, { ...todo, title: todoMsg });
-    setIsTodoEditable(false);
-  };
-  
+  if (!todoMsg.trim()) return; // Prevent empty titles
+  updateTodo(todo.id, { ...todo, title: todoMsg });
+  setIsTodoEditable(false);
+};
+
   const toggleCompleted = () => {
     toggleTodo(todo.id);
   };
 
   return (
     <div
-      className={`flex border border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300 text-black ${todo.completed ? "bg-[#afd58d]" : "bg-[#84fbf5]"
+      className={`flex border border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300 text-[#e8eae6] ${todo.completed ? "bg-[#4a6334]" : "bg-[#2d6c69]"
         }`}
     >
       <input
@@ -37,7 +37,7 @@ function TodoItem({ todo }) {
       />
       {/* Edit, Save Button */}
       <button
-        className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0 disabled:opacity-50"
+        className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-[#316373] hover:bg-[#0d2e2d] shrink-0 disabled:opacity-50"
         onClick={() => {
           if (todo.completed) return;
 
@@ -51,7 +51,7 @@ function TodoItem({ todo }) {
       </button>
       {/* Delete Todo Button */}
       <button
-        className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0"
+        className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-[#316373] hover:bg-gray-100 shrink-0"
         onClick={() => deleteTodo(todo.id)}
       >
         ❌

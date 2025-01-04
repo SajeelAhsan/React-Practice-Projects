@@ -17,9 +17,10 @@ function Todo() {
     );
   };
   useEffect(() => {
-    console.log("Current todos state:", todos);
+    // Log the current todos state
+    //console.log("Current todos state:", todos);
   }, [todos]);
-  
+
 
   const deleteTodo = (id) => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
@@ -34,17 +35,13 @@ function Todo() {
       )
     );
   };
-
   // Initialize todos from localStorage
   useEffect(() => {
-    try {
-      const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
-      setTodos(storedTodos);
-    } catch (error) {
-      console.error("Failed to load todos from local storage:", error);
+    const todo = JSON.parse(localStorage.getItem("todos"));
+    if (todo && todo.length > 0) {
+      setTodos(todo);
     }
   }, []);
-  
   useEffect(() => {
     try {
       localStorage.setItem("todos", JSON.stringify(todos));
@@ -52,14 +49,12 @@ function Todo() {
       console.error("Failed to save todos to local storage:", error);
     }
   }, [todos]);
-  
-  
 
   return (
     <TodoProvider value={{ todos, addTodo, updateTodo, deleteTodo, toggleTodo }}>
       <div className="bg-[#242e3a] min-h-screen py-8">
-        <div className="text-white container mx-auto px-4">
-          <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
+        <div className="text-[#7f9b8f] container mx-auto px-4">
+          <h1 className="bg-[#243b55]  text-2xl font-bold text-center mb-8 mt-2 ">MANAGE TODO LIST</h1>
           <div className="mb-4">
             <TodoForm />
           </div>
